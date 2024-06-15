@@ -17,8 +17,9 @@ public class PrototypeAttack : MonoBehaviour
     //Called from PlayerAttack script
     public void Fire()
     {
-        //Create a ray from the current position and extending straight forward
-        Ray ray = new Ray(transform.position, transform.forward);
+        //Create a ray from the camera to the mouse.
+        Vector3 mousePosition = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         //Create a RaycastHit variable which will store information about the raycast
         RaycastHit hit;
 
